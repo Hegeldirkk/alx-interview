@@ -8,7 +8,7 @@ def minOperations(n) -> int:
     Prototype: def minOperations(n)
     Returns an integer If n is impossible
     to achieve return 0"""
-    if n <= 0 and type(n) is not int :
+    if n <= 0 and type(n) is not int:
         return 0
 
     text = 2
