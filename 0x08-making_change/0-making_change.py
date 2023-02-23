@@ -21,10 +21,10 @@ def makeChange(coins, total):
     if (total <= 0):
         return 0
     coins.sort(reverse=True)
-    for i in coins:
-        if (total < i):
+    for n in coins:
+        if (total < n):
             pass
-        q, r = divmod(total, i)
+        q, r = divmod(total, n)
         total = r
         sum += q
     if (total != 0):
