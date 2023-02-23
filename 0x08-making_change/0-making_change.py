@@ -17,24 +17,16 @@ def makeChange(coins, total):
         - You can assume you have an infinite number of each denomination of
         coin in the list
     """
-    if total <= 0:
+    sum = 0
+    if (total <= 0):
         return 0
-
-    placeh = total + 1
-
-    memoM = {0: 0}
-
-    for i in range(1, total + 1):
-        memoM[i] = placeh
-
-        for coin in coins:
-            current = i - coin
-            if current < 0:
-                continue
-
-            memoM[i] = min(memoM[current] + 1, memoM[i])
-
-    if memoM[total] == total + 1:
+    coins.sort(reverse=True)
+    for i in coins:
+        if (total < i):
+            pass
+        q, r = divmod(total, i)
+        total = r
+        sum += q
+    if (total != 0):
         return -1
-
-    return memoM[total]
+    return sum
