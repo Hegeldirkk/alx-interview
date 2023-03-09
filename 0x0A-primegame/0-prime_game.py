@@ -13,11 +13,11 @@ def is_prime(n):
     return True
 
 
-def calculate_primes(n, primes):
+def calculate_pr(n, primes):
     """ Calculate all primes """
-    top_prime = primes[-1]
-    if n > top_prime:
-        for i in range(top_prime + 1, n + 1):
+    top = primes[-1]
+    if n > top:
+        for i in range(top + 1, n + 1):
             if is_prime(i):
                 primes.append(i)
             else:
@@ -34,13 +34,13 @@ def isWinner(x, nums):
 
     primes = [0, 0, 2]
 
-    calculate_primes(max(nums), primes)
+    calculate_pr(max(nums), primes)
 
     for round in range(x):
-        sum_options = sum((i != 0 and i <= nums[round])
+        sum_op = sum((i != 0 and i <= nums[round])
                           for i in primes[:nums[round] + 1])
 
-        if (sum_options % 2):
+        if (sum_op % 2):
             winner = "Maria"
         else:
             winner = "Ben"
